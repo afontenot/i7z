@@ -3,12 +3,10 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
-DEPENDPATH += .
-INCLUDEPATH += .
+QT += widgets
 CONFIG += debug
 CFLAGS +=  #QMAKE_*FLAGS are where the gcc flags should be passed
-CXXFLAGS += 
+CXXFLAGS +=
 # Input
 SOURCES += i7z_GUI.cpp ../log.c
 LIBS += -lncurses

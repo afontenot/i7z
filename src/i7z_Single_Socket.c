@@ -338,9 +338,9 @@ void print_i7z_socket_single(struct cpu_socket_info socket_0, int printw_offset,
         (*kk_1)++;
         nanosleep (&one_second_sleep, NULL);
     if(!prog_options.proc_version.nehalem){
-            mvprintw (11 + printw_offset, 0, "\tCore [core-id]  :Actual Freq (Mult.)\t  C0%%   Halt(C1)%%  C3 %%   C6 %%   C7 %%  Temp      VCore\n");
+            mvprintw (11 + printw_offset, 0, "\tCore [core-id]:Actual Freq (Mult. ) \t C0 %%  Halt(C1)%% C3 %%    C6 %%    C7 %%  Temp      VCore\n");
     }else{
-            mvprintw (11 + printw_offset, 0, "\tCore [core-id]  :Actual Freq (Mult.)\t  C0%%   Halt(C1)%%  C3 %%   C6 %%  Temp      VCore\n");
+            mvprintw (11 + printw_offset, 0, "\tCore [core-id]:Actual Freq (Mult. ) \t C0 %%  Halt(C1)%% C3 %%    C6 %%  Temp      VCore\n");
     }
         //estimate the CPU speed
         estimated_mhz = estimate_MHz ();
@@ -517,7 +517,7 @@ void print_i7z_socket_single(struct cpu_socket_info socket_0, int printw_offset,
                     }
             }
             if (print_core[ii])
-                    mvprintw (12 + ii + printw_offset, 0, "\tCore %d [%d]:\t  %0.2f (%.2fx)\t%4.3Lg\t%4.3Lg\t%4.3Lg\t%4.3Lg\t%4.3Lg\t%d\t%0.4f\n",
+                    mvprintw (12 + ii + printw_offset, 0, "\tCore %d [%d]:\t  %8.2f (%5.2fx)\t%6.2Lf\t%6.2Lf\t%6.2Lf\t%6.2Lf\t%6.2Lf\t%d\t%0.4f\n",
                           ii + 1, core_list[ii], _FREQ[i], _MULT[i], THRESHOLD_BETWEEN_0_100(C0_time[i] * 100),
                           THRESHOLD_BETWEEN_0_100(c1_time), THRESHOLD_BETWEEN_0_100(C3_time[i] * 100), THRESHOLD_BETWEEN_0_100(C6_time[i] * 100),THRESHOLD_BETWEEN_0_100(C7_time[i] * 100),
               Read_Thermal_Status_CPU(core_list[ii]),    //C0_time[i]*100+C1_time[i]*100 around 100
@@ -534,7 +534,7 @@ void print_i7z_socket_single(struct cpu_socket_info socket_0, int printw_offset,
                     }
             }
             if (print_core[ii])
-                    mvprintw (12 + ii + printw_offset, 0, "\tCore %d [%d]:\t  %0.2f (%.2fx)\t%4.3Lg\t%4.3Lg\t%4.3Lg\t%4.3Lg\t%d\t%0.4f\n",
+                    mvprintw (12 + ii + printw_offset, 0, "\tCore %d [%d]:\t  %8.2f (%5.2fx)\t%6.2Lf\t%6.2Lf\t%6.2Lf\t%6.2Lf\t%d\t%0.4f\n",
                           ii + 1, core_list[ii], _FREQ[i], _MULT[i], THRESHOLD_BETWEEN_0_100(C0_time[i] * 100),
                           THRESHOLD_BETWEEN_0_100(c1_time), THRESHOLD_BETWEEN_0_100(C3_time[i] * 100), THRESHOLD_BETWEEN_0_100(C6_time[i] * 100),Read_Thermal_Status_CPU(core_list[ii]),    //C0_time[i]*100+C1_time[i]*100 around 100
                           Read_Voltage_CPU(core_list[ii]));
@@ -598,7 +598,7 @@ void print_i7z_socket_single(struct cpu_socket_info socket_0, int printw_offset,
         logCloseFile_single();
 
         mvprintw (10 + printw_offset, 0,
-                  "  Real Current Frequency %0.2f MHz [%0.2f x %0.2f] (Max of below)\n", TRUE_CPU_FREQ, BLCK, TRUE_CPU_FREQ/BLCK);
+                  "  Real Current Frequency: %8.2f MHz [%0.2f x %5.2f] (Max of below)\n", TRUE_CPU_FREQ, BLCK, TRUE_CPU_FREQ/BLCK);
 
         refresh ();
 
